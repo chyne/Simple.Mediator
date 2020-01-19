@@ -1,9 +1,9 @@
-﻿namespace Simple.Mediator.Tests.Sample
+namespace Simple.Mediator.Tests.Handlers
 {
     using System.Threading.Tasks;
-    using Interface;
+    using Interfaces;
 
-    public static class Sample
+    public static class BasicHandler
     {
         public class Request : IRequest<Response>
         {

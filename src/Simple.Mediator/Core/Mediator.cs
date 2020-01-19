@@ -2,8 +2,9 @@ namespace Simple.Mediator.Core
 {
     using System;
     using System.Threading.Tasks;
-    using Interface;
+    using Interfaces;
     using Internal;
+    using Internal.Interfaces;
 
     public class Mediator : IMediator
     {

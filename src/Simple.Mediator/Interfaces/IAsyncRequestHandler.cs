@@ -1,4 +1,4 @@
-﻿namespace Simple.Mediator.Interface
+﻿namespace Simple.Mediator.Interfaces
 {
     using System.Threading.Tasks;
 

@@ -1,4 +1,4 @@
-﻿namespace Simple.Mediator.Tests.Utility
+namespace Simple.Mediator.Tests.Utility
 {
     using Autofac;
     using Autofac.Core;

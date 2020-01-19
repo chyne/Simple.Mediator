@@ -1,7 +1,7 @@
-﻿namespace Simple.Mediator.Internal
+﻿namespace Simple.Mediator.Internal.Interfaces
 {
     using Core;
-    using Interface;
+    using Mediator.Interfaces;
 
     internal interface IRequestHandlerWrapper<TResponse>
     {

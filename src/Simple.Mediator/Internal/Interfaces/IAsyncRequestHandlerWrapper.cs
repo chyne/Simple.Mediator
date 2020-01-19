@@ -1,8 +1,8 @@
-﻿namespace Simple.Mediator.Internal
+namespace Simple.Mediator.Internal.Interfaces
 {
     using System.Threading.Tasks;
     using Core;
-    using Interface;
+    using Mediator.Interfaces;
 
     internal interface IAsyncRequestHandlerWrapper<TResponse>
     {

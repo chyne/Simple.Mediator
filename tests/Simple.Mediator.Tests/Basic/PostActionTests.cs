@@ -7,7 +7,7 @@ namespace Simple.Mediator.Tests.Basic
     using Utility;
 
     [TestClass]
-    public class BasicTests : DependencyInjectionSupportedTest<MediatorTestModule>
+    public class PostActionTests : DependencyInjectionSupportedTest<MediatorTestModule>
     {
         private IMediator _mediator;
 
@@ -26,21 +26,21 @@ namespace Simple.Mediator.Tests.Basic
         [TestMethod]
         public void BasicTest()
         {
-            var request = new BasicHandler.Request { Value = "Hello!" };
+            var request = new PostActionHandler.Request { Value = "Hello!" };
 
             var result = _mediator.Dispatch(request);
 
-            Assert.AreEqual(request.Value, result.Value);
+            Assert.AreEqual(nameof(PostActionHandler.RequestRequestPostProcessor), result.Value);
         }
 
         [TestMethod]
         public async Task BasicAsyncTest()
         {
-            var request = new BasicHandler.Request { Value = "Async Hello!" };
+            var request = new PostActionHandler.Request { Value = "Async Hello!" };
 
-            var result =  await _mediator.DispatchAsync(request);
+            var result = await _mediator.DispatchAsync(request);
 
-            Assert.AreEqual(request.Value, result.Value);
+            Assert.AreEqual(nameof(PostActionHandler.RequestRequestPostProcessor), result.Value);
         }
     }
 }

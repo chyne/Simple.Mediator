@@ -1,8 +1,8 @@
-﻿namespace Simple.Mediator.Tests.Utility
+namespace Simple.Mediator.Tests.Utility
 {
     using Autofac;
     using Core;
-    using Interface;
+    using Interfaces;
 
     public class MediatorTestModule : Module
     {
@@ -17,6 +17,12 @@
 
             builder.RegisterAssemblyTypes(GetType().Assembly).AsClosedTypesOf(typeof(IRequestHandler<,>));
             builder.RegisterAssemblyTypes(GetType().Assembly).AsClosedTypesOf(typeof(IAsyncRequestHandler<,>));
+
+            builder.RegisterAssemblyTypes(GetType().Assembly).AsClosedTypesOf(typeof(IRequestPreProcessor<,>));
+            builder.RegisterAssemblyTypes(GetType().Assembly).AsClosedTypesOf(typeof(IAsyncRequestPreProcessor<,>));
+
+            builder.RegisterAssemblyTypes(GetType().Assembly).AsClosedTypesOf(typeof(IRequestPostProcessor<,>));
+            builder.RegisterAssemblyTypes(GetType().Assembly).AsClosedTypesOf(typeof(IAsyncRequestPostProcessor<,>));
         }
     }
 }

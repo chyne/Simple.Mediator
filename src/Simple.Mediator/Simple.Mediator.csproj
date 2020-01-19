@@ -35,14 +35,18 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\IAsyncRequestHandler.cs" />
+    <Compile Include="Interfaces\IAsyncRequestHandler.cs" />
     <Compile Include="Internal\AsyncRequestHandlerWrapper.cs" />
-    <Compile Include="Internal\IAsyncRequestHandlerWrapper.cs" />
-    <Compile Include="Internal\IRequestHandlerWrapper.cs" />
+    <Compile Include="Interfaces\IAsyncRequestPostProcessor.cs" />
+    <Compile Include="Interfaces\IAsyncRequestPreProcessor.cs" />
+    <Compile Include="Internal\Interfaces\IAsyncRequestHandlerWrapper.cs" />
+    <Compile Include="Interfaces\IRequestPostProcessor.cs" />
+    <Compile Include="Interfaces\IRequestPreProcessor.cs" />
+    <Compile Include="Internal\Interfaces\IRequestHandlerWrapper.cs" />
     <Compile Include="Core\TypeFactory.cs" />
-    <Compile Include="Interface\IMediator.cs" />
-    <Compile Include="Interface\IRequest.cs" />
-    <Compile Include="Interface\IRequestHandler.cs" />
+    <Compile Include="Interfaces\IMediator.cs" />
+    <Compile Include="Interfaces\IRequest.cs" />
+    <Compile Include="Interfaces\IRequestHandler.cs" />
     <Compile Include="Core\Mediator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Internal\RequestHandlerWrapper.cs" />

@@ -42,11 +42,15 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basic\PostActionTests.cs" />
+    <Compile Include="Basic\PreActionTests.cs" />
+    <Compile Include="Handlers\PostActionHandler.cs" />
+    <Compile Include="Handlers\PreActionHandler.cs" />
     <Compile Include="Utility\DependencyInjectionSupportedTest.cs" />
     <Compile Include="Utility\DependencyInjectionTests.cs" />
     <Compile Include="Utility\MediatorTestModule.cs" />
     <Compile Include="Basic\BasicTests.cs" />
-    <Compile Include="Sample\Sample.cs" />
+    <Compile Include="Handlers\BasicHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
