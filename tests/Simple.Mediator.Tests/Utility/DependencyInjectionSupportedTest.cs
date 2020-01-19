@@ -1,13 +1,13 @@
-﻿namespace Simple.Mediator.Tests
+﻿namespace Simple.Mediator.Tests.Utility
 {
     using Autofac;
     using Autofac.Core;
 
-    public class IoCSupportedTest<TModule> where TModule : IModule, new()
+    public abstract class DependencyInjectionSupportedTest<TModule> where TModule : IModule, new()
     {
         private readonly IContainer _container;
 
-        protected IoCSupportedTest()
+        protected DependencyInjectionSupportedTest()
         {
             var builder = new ContainerBuilder();
 
@@ -21,7 +21,7 @@
             return _container.Resolve<TEntity>();
         }
 
-        protected void ShutdownIoC()
+        protected void CleanupDependencyInjection()
         {
             _container.Dispose();
         }

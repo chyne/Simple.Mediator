@@ -1,4 +1,4 @@
-﻿namespace Simple.Mediator.Tests
+﻿namespace Simple.Mediator.Tests.Utility
 {
     using Autofac;
     using Core;
@@ -14,7 +14,9 @@
                 var c = context.Resolve<IComponentContext>();
                 return t => c.Resolve(t);
             });
+
             builder.RegisterAssemblyTypes(GetType().Assembly).AsClosedTypesOf(typeof(IRequestHandler<,>));
+            builder.RegisterAssemblyTypes(GetType().Assembly).AsClosedTypesOf(typeof(IAsyncRequestHandler<,>));
         }
     }
 }
