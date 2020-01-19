@@ -1,4 +1,4 @@
-﻿namespace Simple.Mediator.Internal
+namespace Simple.Mediator.Internal
 {
     using Core;
     using Interface;
@@ -7,8 +7,8 @@
     {
         public TResponse Handle(IRequest<TResponse> request, TypeFactory typeFactory)
         {
-            return ((IRequestHandler<TRequest, TResponse>) typeFactory(typeof(IRequestHandler<TRequest, TResponse>)))
-                .Handle((TRequest) request);
+            return ((IRequestHandler<TRequest, TResponse>)typeFactory(typeof(IRequestHandler<TRequest, TResponse>)))
+                .Handle((TRequest)request);
         }
     }
 }

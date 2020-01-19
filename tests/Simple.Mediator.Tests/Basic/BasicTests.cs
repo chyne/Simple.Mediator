@@ -1,4 +1,4 @@
-﻿namespace Simple.Mediator.Tests.Basic
+namespace Simple.Mediator.Tests.Basic
 {
     using System.Threading.Tasks;
     using Interface;

@@ -1,4 +1,4 @@
-﻿namespace Simple.Mediator.Core
+namespace Simple.Mediator.Core
 {
     using System;
     using System.Threading.Tasks;

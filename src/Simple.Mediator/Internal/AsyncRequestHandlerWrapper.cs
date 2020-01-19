@@ -1,4 +1,4 @@
-﻿namespace Simple.Mediator.Internal
+namespace Simple.Mediator.Internal
 {
     using System.Threading.Tasks;
     using Core;
@@ -8,7 +8,8 @@
     {
         public Task<TResponse> Handle(IRequest<TResponse> request, TypeFactory typeFactory)
         {
-            return ((IAsyncRequestHandler<TRequest, TResponse>)typeFactory(typeof(IAsyncRequestHandler<TRequest, TResponse>)))
+            return ((IAsyncRequestHandler<TRequest, TResponse>)typeFactory(
+                    typeof(IAsyncRequestHandler<TRequest, TResponse>)))
                 .Handle((TRequest)request);
         }
     }
