@@ -1,8 +1,12 @@
 namespace Simple.Mediator.Interfaces
 {
-    public interface IRequestPostProcessor<in TRequest, in TResponse> where TRequest : IRequest<TResponse>
+    public interface IRequestPostProcessor<in TRequest, in TResponse> : IOrderedProcessor where TRequest : IRequest<TResponse>
+    {
+        void Process(TRequest request, TResponse response);
+    }
+
+    public interface IOrderedProcessor
     {
         int Order { get; }
-        void Process(TRequest request, TResponse response);
     }
 }

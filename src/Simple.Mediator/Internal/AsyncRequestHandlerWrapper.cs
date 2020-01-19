@@ -1,6 +1,6 @@
 namespace Simple.Mediator.Internal
 {
-    using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using Core;
     using Interfaces;
@@ -11,14 +11,14 @@ namespace Simple.Mediator.Internal
 
         public async Task<TResponse> Handle(IRequest<TResponse> request, TypeFactory typeFactory)
         {
-            foreach (var action in (IEnumerable<IAsyncRequestPreProcessor<TRequest, TResponse>>)typeFactory(typeof(IEnumerable<IAsyncRequestPreProcessor<TRequest, TResponse>>)))
+            foreach (var action in typeFactory.GetInstances<IAsyncRequestPreProcessor<TRequest, TResponse>>().OrderBy(a => a.Order))
             {
                 await action.Process((TRequest)request);
             }
 
-            var response = await ((IAsyncRequestHandler<TRequest, TResponse>)typeFactory(typeof(IAsyncRequestHandler<TRequest, TResponse>))).Handle((TRequest)request);
+            var response = await typeFactory.GetInstance<IAsyncRequestHandler<TRequest, TResponse>>().Handle((TRequest)request);
 
-            foreach (var action in (IEnumerable<IAsyncRequestPostProcessor<TRequest, TResponse>>)typeFactory(typeof(IEnumerable<IAsyncRequestPostProcessor<TRequest, TResponse>>)))
+            foreach (var action in typeFactory.GetInstances<IAsyncRequestPostProcessor<TRequest, TResponse>>().OrderBy(a =>  a.Order))
             {
                 await action.Process((TRequest)request, response);
             }
